@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYSJU'S - The Learning App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #6a1b9a;
+        }
+
+        /* Header Section */
+        .header {
+            background: white;
+            padding: 20px 40px;
+        }
+        
+        .header h1 {
+            color: #2a336c;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        
+        .header .subtitle {
+            color: #6c757d;
+            font-size: 18px;
+        }
+
+        /* Main Content */
+        .main-container {
+    display: flex;
+    padding: 30px 40px;
+    gap: 100px; /* Adjusted gap */
+    min-height: calc(100vh - 110px);
+    align-items: flex-start; /* Align items to top */
+}
+
+        /* Left Column - Features */
+        .features-section {
+    flex: 1.2; /* Give more space to features */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: none; /* Remove max-width constraint */
+}
+        .feature {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 100%; /* Make features take full width */
+}
+        .feature h2 {
+            color: #2a336c;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #6c757d;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Right Column - Form Section */
+        .form-container {
+    background: #0073e6;
+    padding: 30px;
+    border-radius: 8px;
+    color: white;
+    width: 380px;
+    flex-shrink: 0;
+    position: relative;
+    min-height: 500px;
+    margin-left: 10px; /* Pushes container to right */
+    margin-right: 200px;/* Remove any top margin */
+}
+
+        .form-content {
+            height: calc(100% - 120px);
+        }
+
+        .form-container h2 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .form-container p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        /* Phone Input */
+        .phone-input {
+            background: white;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+
+        .prefix {
+            color: #6c757d;
+            margin-right: 10px;
+        }
+
+        input[type="tel"] {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            flex-grow: 1;
+        }
+
+        .next-btn {
+            background: #0056b3;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .next-btn:disabled {
+            background: #7aa7e0;
+            cursor: not-allowed;
+        }
+
+        .checkbox-section {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            right: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .checkbox {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            color: #6c757d; /* Changed from white to gray */
+        }
+
+        .checkbox input {
+            margin-right: 10px;
+        }
+
+        .error-message {
+            color: #ffcccb;
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>BYSJU'S</h1>
+        <p class="subtitle">The Learning App</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Column - Features -->
+        <div class="features-section">
+            <div class="feature">
+                <h2>Watch Videos</h2>
+                <p>1000+ hours of engaging videos covering all concepts</p>
+            </div>
+            <div class="feature">
+                <h2>Unlimited Practice</h2>
+                <p>Learn better and faster with our adaptive algorithm</p>
+            </div>
+            <div class="feature">
+                <h2>Take Tests</h2>
+                <p>Ace your school and competitive exams with our tests</p>
+            </div>
+            <div class="feature">
+                <h2>Ask A Doubt</h2>
+                <p>Get your doubts cleared from our expert mentors</p>
+            </div>
+        </div>
+
+        <!-- Right Column - Form -->
+        <div class="form-container">
+            <div class="form-content">
+                <h2>Let's get started</h2>
+                <p>Enter your mobile number to sign up / sign in to your BYSJU’s account</p>
+
+                <div class="phone-input">
+                    <span class="prefix">+1</span>
+                    <input type="tel" id="mobile" placeholder="Enter your mobile number" maxlength="10">
+                </div>
+
+                <div class="error-message" id="errorMsg">Please enter a valid 10-digit mobile number</div>
+
+                <button class="next-btn" id="nextBtn" disabled>NEXT</button>
+            </div>
+
+            <div class="checkbox-section">
+                <div class="checkbox">
+                    <input type="checkbox" id="questions">
+                    <label for="questions">Access our library of over 5 lakh questions</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="doubts" checked>
+                    <label for="doubts">Clear doubts with experts</label>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="tests">
+                    <label for="tests">Practice to perfection with chapterwise online tests</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mobileInput = document.getElementById('mobile');
+        const nextBtn = document.getElementById('nextBtn');
+        const errorMsg = document.getElementById('errorMsg');
+
+        mobileInput.addEventListener('input', function() {
+            const phoneNumber = this.value.trim();
+            const isValid = /^\d{10}$/.test(phoneNumber);
+            
+            nextBtn.disabled = !isValid;
+            errorMsg.style.display = isValid ? 'none' : 'block';
+        });
+
+        nextBtn.addEventListener('click', function() {
+            if (!this.disabled) {
+                window.location.href = 'https://teamy-labs.github.io/phishing-awareness-/'; // Replace with your actual URL
+            }
+        });
+    </script>
+</body>
+</html>
